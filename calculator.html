@@ -1,0 +1,76 @@
+ <!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.css">
+  </head>
+
+<body>
+
+<div class="position-relative overflow-hidden p-5 p-md-5 text-center bg-light">
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 font-weight-normal">Calculator</h1>
+        <p class="lead font-weight-normal">This is a responsive calculator based on selection.</p>
+
+      Select Operation Type:
+      <select id="operation">
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+      </select>
+      <div class="d-flex justify-content-center pt-3">
+          <input type="number" id="num1"> <h5 id="op" class="pr-1 pl-1"> * </h5> <input type="number" id="num2">
+      </div>
+      <div class="d-flex justify-content-center pt-3">
+          <h5 class="pt-1 pr-1">Result: </h5> <input type="number" id="result" readonly="readonly">
+      </div>
+
+
+      </div>
+      <div class="product-device shadow-sm d-none d-md-block"></div>
+      <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+
+</body>
+
+<script>
+
+
+document.getElementById("operation").onchange = function() {operation()};
+document.getElementById("num1").onchange = function() {operation()};
+document.getElementById("num2").onchange = function() {operation()};
+
+function operation() {
+    var x = document.getElementById("operation");
+    var n1 = parseFloat(document.getElementById("num1").value);
+    var n2 = parseFloat(document.getElementById("num2").value);
+    var res = 0;
+
+    if (x.value == "multiply") {
+      document.getElementById("op").innerHTML = "*";
+      res = n1 * n2;
+    }
+    else if (x.value == "divide") {
+      document.getElementById("op").innerHTML = "/";
+      res = n1 / n2;
+    }
+    else if (x.value == "add") {
+      document.getElementById("op").innerHTML = "+";
+      res = n1 + n2;
+    }
+    else if (x.value == "subtract") {
+      document.getElementById("op").innerHTML = "-";
+      res = n1 - n2;
+    }
+
+    document.getElementById("result").value = res;
+
+}
+
+</script>
+
+</html>
